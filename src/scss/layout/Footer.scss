@@ -1,0 +1,44 @@
+footer {
+  background-color: #fff;
+  padding: 25px 0;
+  margin-top: 80px;
+  .links {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    min-height: 200px;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .copy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 25px;
+    border-top: 1px solid #d8d8d8;
+  }
+  a {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    color: #595b66;
+    text-decoration: none;
+
+  }
+  b{
+    font-weight: 500;
+font-size: 14px;
+line-height: 136%;
+color: #1F2026;
+  }
+  .row{
+    display: flex;
+    gap: 16px;
+    i{
+        font-size: 20px;
+    }
+  }
+}
