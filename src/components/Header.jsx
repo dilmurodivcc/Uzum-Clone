@@ -1,5 +1,5 @@
-// import imgLang from "../assets/lang";
-// import logo from "../assets/logo.png";
+import imgLang from "../assets/lang.png";
+import logo from "../../public/logo.svg";
 
 function Header() {
   return (
@@ -9,7 +9,6 @@ function Header() {
           <div className="container">
             <nav>
               <div className="country">
-               
                 <small>
                   Country: <span>Toshkent</span>
                 </small>
@@ -20,7 +19,7 @@ function Header() {
               <b>Savol-javoblar</b>
               <b>Buyurtmalarim</b>
               <div className="lang">
-                <img className="imgLang" src="./src/assets/lang.png" alt="" />
+                <img className="imgLang" src={imgLang} alt="" />
                 English
               </div>
             </nav>
@@ -28,7 +27,7 @@ function Header() {
         </div>
         <div className="header__bottom">
           <div className="container">
-            <img src="./public/logo.svg" alt="" />
+            <img src={logo} alt="" />
             <form>
               <input
                 type="text"
