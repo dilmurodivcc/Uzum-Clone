@@ -1,21 +1,48 @@
 @use "./layout/Cards.scss" as *;
 @use "./layout/Header.scss" as *;
 @use "./layout/Footer.scss" as *;
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .container {
-    max-width: 1240px;
-    margin: 0 auto;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
-body{
-    background-color: #f2f4f7;
-    font-family: 'Inter', sans-serif;
+body {
+  background-color: #f2f4f7;
+  font-family: "Inter", sans-serif;
 }
 
-
+.show-more {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 16px 250px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #1f2026;
+  background-color: #edeff2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.hide {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 16px 250px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #ff0000;
+  background-color: #f2f0ed;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.225);
+}

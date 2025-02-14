@@ -11,18 +11,23 @@ function App() {
   const [sortBy, setSortBy] = useState("A-Z");
   const [sortByPrice, setSortByPrice] = useState("asc");
   const [sortByRating, setSortByRating] = useState("asc");
+  const [visibleProducts, setVisibleProducts] = useState(24);
 
   useEffect(() => {
-    axios.get("https://dummyjson.com/products").then((res) => {
+    axios.get("https://dummyjson.com/products?limit=134").then((res) => {
       setProduct(res.data.products);
       setFilteredProducts(res.data.products);
     });
   }, []);
 
   useEffect(() => {
-    let filtered = product.filter((item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    let filtered = [...product];
+
+    if (searchTerm) {
+      filtered = filtered.filter((item) =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
 
     if (sortBy === "A-Z") {
       filtered.sort((a, b) => a.title.localeCompare(b.title));
@@ -45,6 +50,14 @@ function App() {
     setFilteredProducts(filtered);
   }, [searchTerm, sortBy, sortByPrice, sortByRating, product]);
 
+  const loadMoreProducts = () => {
+    setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 24);
+  };
+
+  const hideProducts = () => {
+    setVisibleProducts(24);
+  };
+
   return (
     <>
       <Header
@@ -54,7 +67,18 @@ function App() {
         setSortByRating={setSortByRating}
       />
       <div className="container">
-        <Cards products={filteredProducts} />
+        <Cards products={filteredProducts.slice(0, visibleProducts)} />
+        {visibleProducts < filteredProducts.length ? (
+          <button onClick={loadMoreProducts} className="show-more">
+            Show more 24x
+          </button>
+        ) : (
+          visibleProducts > 24 && (
+            <button onClick={hideProducts} className="hide">
+              Hide to 24x
+            </button>
+          )
+        )}
       </div>
       <Footer />
     </>
