@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-function Cards() {
+function Cards({ products }) {
   return (
     <>
       <h1>
@@ -21,7 +21,9 @@ function Cards() {
         </svg>
       </h1>
       <div className="cards">
-        <Card />
+        {products.map((item) => (
+          <Card key={item.id} item={item} />
+        ))}
       </div>
     </>
   );

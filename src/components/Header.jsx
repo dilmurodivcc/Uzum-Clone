@@ -1,7 +1,7 @@
 import imgLang from "../assets/lang.png";
 import logo from "../../public/logo.svg";
 
-function Header() {
+function Header({ setSearchTerm, setSortBy, setSortByPrice, setSortByRating }) {
   return (
     <>
       <header>
@@ -28,10 +28,11 @@ function Header() {
         <div className="header__bottom">
           <div className="container">
             <img src={logo} alt="" />
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <input
                 type="text"
                 placeholder="Mahsulotlar va turkumlar izlash"
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button>
                 <svg
@@ -51,15 +52,15 @@ function Header() {
               </button>
             </form>
             <nav>
-              <select name="by_latter">
+              <select name="by_latter" onChange={(e) => setSortBy(e.target.value)}>
                 <option value="A-Z">A to Z</option>
                 <option value="Z-A">Z to A</option>
               </select>
-              <select name="by_price">
-                <option value="asc">Increase Prise</option>
-                <option value="desc">Decrease Prise</option>
+              <select name="by_price" onChange={(e) => setSortByPrice(e.target.value)}>
+                <option value="asc">Increase Price</option>
+                <option value="desc">Decrease Price</option>
               </select>
-              <select name="by_rating">
+              <select name="by_rating" onChange={(e) => setSortByRating(e.target.value)}>
                 <option value="asc">Ascending Rating</option>
                 <option value="desc">Descending Rating</option>
               </select>
